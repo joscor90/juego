@@ -1,12 +1,11 @@
 #Input del usuario.
 input_usuario = ARGV[0].to_s
-input_usuario.downcase!
 
 #Arreglo de opciones para la computadora.
 opciones = ["piedra", "papel", "tijera"]
 
 #Esta es la elección que hace la computadora a partir del arreglo de opciones disponible.
-eleccion = arreglo.[rand(3)]
+eleccion = opciones[rand(3)]
 
 #Flujo de control del juego.
 if input_usuario == eleccion
@@ -32,3 +31,4 @@ elsif input_usuario == "tijera" && eleccion == "piedra"
     puts "Perdiste"
 else
     puts "Argumento inválido: debe ser piedra, papel o tijera"
+end
