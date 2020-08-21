@@ -1,5 +1,5 @@
 #Input del usuario.
-input_usuario = ARGV[0].to_s
+input_usuario = ARGV[0].downcase
 
 #Arreglo de opciones para la computadora.
 opciones = ["piedra", "papel", "tijera"]
@@ -8,27 +8,18 @@ opciones = ["piedra", "papel", "tijera"]
 eleccion = opciones[rand(3)]
 
 #Flujo de control del juego.
-if input_usuario == eleccion
-    puts "Computador juega #{eleccion}"
-    puts "Empataste"
-elsif input_usuario == "piedra" && eleccion == "tijera"
-    puts "Computador juega #{eleccion}"
-    puts "Ganaste"
-elsif input_usuario == "piedra" && eleccion == "papel"
-    puts "Computador juega #{eleccion}"
-    puts "Perdiste"
-elsif input_usuario == "papel" && eleccion == "piedra"
-    puts "Computador juega #{eleccion}"
-    puts "Ganaste"
-elsif input_usuario == "papel" && eleccion == "tijera"
-    puts "Computador juega #{eleccion}"
-    puts "Perdiste"
-elsif input_usuario == "tijera" && eleccion == "papel"
-    puts "Computador juega #{eleccion}"
-    puts "Ganaste"
-elsif input_usuario == "tijera" && eleccion == "piedra"
-    puts "Computador juega #{eleccion}"
-    puts "Perdiste"
+case(input_usuario)
+when eleccion
+    puts "Computador juega #{eleccion}.\nEmpataste"
+when "tijera"
+    puts "Computador juega #{eleccion}.\nGanaste" if eleccion == "papel"
+    puts "Computador juega #{eleccion}.\nPerdiste" if eleccion == "piedra"
+when "piedra"
+    puts "Computador juega #{eleccion}.\nGanaste" if eleccion == "tijera"
+    puts "Computador juega #{eleccion}.\nPerdiste" if eleccion == "papel"
+when "papel"
+    puts "Computador juega #{eleccion}.\nGanaste" if eleccion == "piedra"
+    puts "Computador juega #{eleccion}.\nPerdiste" if eleccion == "tijera"
 else
     puts "Argumento inválido: debe ser piedra, papel o tijera"
 end
